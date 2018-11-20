@@ -1,14 +1,44 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+      <ion-header >
+        <ion-toolbar >
+          <ion-title style="background-color: #DB7F04">Contactos</ion-title>
+          <ion-buttons end>
+            <button (click)="clicknuevo()" ion-button icon-only color="add" style = "color:#DB7F04">
+              <ion-icon name="add" style = "color:#161032"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+
+<ion-content padding style="background-color: #161032">
+    
+  <ion-list>
+    <ion-item-sliding *ngFor = "let p of contacto">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../assets/imgs/256_1.png">
+        </ion-avatar>
+        <h2 (click)=" clickcontacto(p)">{{p.nombre}}</h2>
+        <h3>{{p.telefono}}</h3>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="primary">
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button ion-button color="secondary">
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="danger">
+          <ion-icon name="close"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>
